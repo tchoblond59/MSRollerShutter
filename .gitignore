@@ -3,3 +3,9 @@
 ################################################################################
 
 /Debug
+/__vm
+/Release
+/~AutoRecover.RollerShutter.vcxproj
+/RollerShutter.vcxproj.user
+/RollerShutter.vcxproj.filters
+/RollerShutter.vcxproj
