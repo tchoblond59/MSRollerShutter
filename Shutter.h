@@ -2,7 +2,7 @@
 #define Shutter_h
 #include <Arduino.h>
 #include "MyNodeDefinition.h"
-#include <C:\Users\julie\OneDrive\Documents\Arduino\libraries\MySensors\core\MySensorsCore.h> //If someone can explain me why i have to do this shit...
+//#include <C:\Users\julie\OneDrive\Documents\Arduino\libraries\MySensors\core\MySensorsCore.h> //If someone can explain me why i have to do this shit...
 #include <OneWire.h>
 #include <DallasTemperature.h>
 //#include <timer.h>

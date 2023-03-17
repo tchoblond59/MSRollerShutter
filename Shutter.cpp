@@ -1,5 +1,6 @@
 #include "Shutter.h"
 #include <EEPROM.h>
+#include <core/MySensorsCore.h>
 Shutter::Shutter()
 {
 
@@ -72,6 +73,8 @@ void Shutter::stop()
 {
 	// Power OFF motor 
 	digitalWrite(SHUTTER_POWER_PIN, RELAY_OFF);
+  // Power OFF UPDOWN relay so we dont consume current
+  digitalWrite(SHUTTER_UPDOWN_PIN, RELAY_OFF);
 	digitalWrite(DEBUG_LED, LOW);
 	m_state = RollerState::STOPPED;
 	Serial.println("Motor Stopped");
