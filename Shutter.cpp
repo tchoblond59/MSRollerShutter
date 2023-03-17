@@ -33,10 +33,13 @@ void Shutter::init()
 	m_last_move = millis();
 	last_update_temperature = m_last_move;
 	m_last_send = m_last_move;
+  m_last_refresh_position = m_last_send;
 	m_hilinkTemperature = 0;
 	m_percent_target = -1;
 	m_analog_read = 0;
 	debug();
+  sendSketchInfo(NODE_NAME, RELEASE);
+  present(CHILD_ID_ROLLERSHUTTER, S_DIMMER );
 }
 
 void Shutter::open()
@@ -115,6 +118,12 @@ void Shutter::update()
 			sendShutterPosition();
 		}
 	}
+
+  if(millis() - m_last_refresh_position > AUTO_REFRESH)
+  {
+    m_last_refresh_position = millis();
+    sendShutterPosition();
+  }
 	refreshTemperature();
 }
 

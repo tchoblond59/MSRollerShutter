@@ -12,7 +12,10 @@
 *                                          MYSENSORS
 * ******************************************************************************************************************/
 #define MY_BAUD_RATE      38400
-#define MY_NODE_ID        100
+#define MY_NODE_ID        110
+#define MY_PARENT_NODE_ID 200
+#define MY_PARENT_NODE_IS_STATIC
+#define MY_REPEATER_FEATURE
 
 // Enable and select radio type attached
 #define MY_RADIO_RFM69          // Enable RFM69 radio
@@ -44,7 +47,6 @@
 
 // How many milli seconds should we wait for OTA?
 //#define OTA_WAIT_PERIOD 300
-
 #define MY_DEBUG // Enable Mysensors debug prints to serial monitor, comment it to save memory
 
 /* *******************************************************************************************************************
@@ -68,10 +70,9 @@
 * ******************************************************************************************************************/
 //#define MY_REPEATER_FEATURE   // Enable repeater functionality for this node
 
-#define RELEASE           "1.0"
+#define RELEASE           "1.1"
 #define NODE_NAME         "RollerShutter"
 #define MY_DEBUG_SKETCH                               // Enable specific sketch debug prints to serial monitor, comment it to save memory
-
 #define CHILD_ID_ROLLERSHUTTER    1                   // Rollershutter UP/DOWN/STOP/PERCENT
 #define CHILD_ID_AUTOCALIBRATION  2                   // start calibration
 #define CHILD_ID_TEMPERATURE      3                   // onboard NTC temperature sensor, to monitor board temperature
@@ -91,7 +92,7 @@
 
 #define TEMP_MEASURE_INTERVAL     1000                // How many milli seconds between each measurement
 #define FORCE_TRANSMIT_INTERVAL   30                  // number of seconds, the sensor is forced to report all values to the controller
-#define TEMP_TRANSMIT_THRESHOLD   0.25                   // how much the temperature should have changed since last time it was transmitted. 
+#define TEMP_TRANSMIT_THRESHOLD   1                   // how much the temperature should have changed since last time it was transmitted. 
 
 // ********************* BUTTONS STATES **********************************************
 #define BT_PRESS_NONE             0                   // 

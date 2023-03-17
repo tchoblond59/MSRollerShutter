@@ -2,10 +2,10 @@
 #define Shutter_h
 #include <Arduino.h>
 #include "MyNodeDefinition.h"
-#include <C:\Users\julie\Documents\Arduino\libraries\MySensors\core\MySensorsCore.h> //If someone can explain me why i have to do this shit...
+#include <C:\Users\julie\OneDrive\Documents\Arduino\libraries\MySensors\core\MySensorsCore.h> //If someone can explain me why i have to do this shit...
 #include <OneWire.h>
 #include <DallasTemperature.h>
-#include <timer.h>
+//#include <timer.h>
 
 // ********************* PIN/RELAYS DEFINES *******************************************
 #define SHUTTER_UPDOWN_PIN        A1                    // Default pin for relay SPDT, you can change it with : initShutter(SHUTTER_POWER_PIN, SHUTTER_UPDOWN_PIN)
@@ -31,7 +31,8 @@
 
 #define CALIBRATION_SAMPLES       1                     // nb of round during calibration, then average
 #define CALIBRATION_TIMEOUT       55000                 // in ms, timeout between 0 to 100% or vice versa, during calibration
-#define REFRESH_POSITION_TIMEOUT  1000					// in ms time between each send of position when moving
+#define REFRESH_POSITION_TIMEOUT  2000					// in ms time between each send of position when moving
+#define AUTO_REFRESH              1800000         //in ms time between each send of position when its not moving keep high value.
 
 enum RollerState
 {
@@ -71,6 +72,7 @@ private:
 	bool m_calibration;
 	unsigned long m_last_move;//Store last time shutter move in ms
 	unsigned long m_last_send;//Store last time shutter move in ms
+  unsigned long m_last_refresh_position;//Store last time we send the shutter position
 	DallasTemperature m_ds18b20;
 	OneWire *m_oneWire;
 	float m_hilinkTemperature;

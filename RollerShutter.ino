@@ -8,6 +8,7 @@ Shutter rollerShutter;
 // the setup function runs once when you press reset or power the board
 void setup() {
 	rollerShutter.init();
+  rollerShutter.sendShutterPosition();
 }
 
 // the loop function runs over and over again until power down or reset
